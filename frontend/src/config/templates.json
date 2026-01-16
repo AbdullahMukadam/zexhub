@@ -1,0 +1,101 @@
+{
+  "templates": [
+    {
+      "id": "ishover-1",
+      "name": "Saas Landing Page",
+      "description": "A sleek, modern Utilitarian Design template with responsive design",
+      "category": "landing",
+      "type": "html",
+      "repoUrl": "https://github.com/AbdullahMukadam/ishover-landing-page-concept",
+      "branch": "main",
+      "enabled": true,
+      "featured": true,
+      "thumbnail": "/isthover-preview.PNG",
+      "tags": [
+        "landing page",
+        "dark-mode",
+        "responsive"
+      ]
+    },
+    {
+      "id": "flux-auth",
+      "name": "Flux Auth - SaaS Product",
+      "description": "Modern dark-themed SaaS product landing page with animated gradients, code preview, and feature showcase",
+      "category": "saas",
+      "type": "html",
+      "repoUrl": "https://github.com/AbdullahMukadam/new-templates",
+      "folder": "auth-template",
+      "branch": "main",
+      "enabled": true,
+      "featured": true,
+      "thumbnail": "/flux-auth.PNG",
+      "tags": [
+        "saas",
+        "dark-mode",
+        "product",
+        "animated",
+        "modern"
+      ]
+    },
+    {
+      "id": "fitness-rhinos",
+      "name": "Fitness Rhinos - Gym & Fitness",
+      "description": "Bold fitness/gym landing page with animated UI, pricing plans, facilities showcase, and modern orange/black design",
+      "category": "business",
+      "type": "html",
+      "repoUrl": "https://github.com/AbdullahMukadam/new-templates",
+      "folder": "fitness-brand",
+      "branch": "main",
+      "enabled": true,
+      "featured": true,
+      "thumbnail": "/fitness.PNG",
+      "tags": [
+        "fitness",
+        "gym",
+        "business",
+        "pricing",
+        "modern"
+      ]
+    },
+    {
+      "id": "dev-chronicles",
+      "name": "The Dev Chronicles - Newspaper Portfolio",
+      "description": "Creative developer portfolio styled like a vintage newspaper with elegant typography, project showcase, and unique design",
+      "category": "portfolio",
+      "type": "html",
+      "repoUrl": "https://github.com/AbdullahMukadam/new-templates",
+      "folder": "newspaper-portfolio",
+      "branch": "main",
+      "enabled": true,
+      "featured": true,
+      "thumbnail": "/paper-portfolio.PNG",
+      "tags": [
+        "portfolio",
+        "creative",
+        "newspaper",
+        "vintage",
+        "developer"
+      ]
+    },
+    {
+      "id": "simple-portfolio-1",
+      "name": "Simple Portfolio - Developer Portfolio",
+      "description": "Clean and bold developer portfolio with red accent colors, modern typography, and responsive design",
+      "category": "portfolio",
+      "type": "html",
+      "repoUrl": "https://github.com/AbdullahMukadam/new-templates",
+      "folder": "simple-portfolio",
+      "branch": "main",
+      "enabled": true,
+      "featured": true,
+      "thumbnail": "/simple-portfolio.PNG",
+      "tags": [
+        "portfolio",
+        "creative",
+        "newspaper",
+        "vintage",
+        "developer"
+      ]
+    }
+  ]
+}
