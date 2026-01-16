@@ -3,7 +3,8 @@ import { FiCopy, FiCheck, FiCode } from 'react-icons/fi';
 import { shadowPresets } from '../../data/tools/shadows.js';
 
 const BoxShadowGenerator = () => {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState({ css: false, html: false, both: false });
+  const [exportFormat, setExportFormat] = useState('both');
   const [shadows, setShadows] = useState([
     {
       horizontal: 0,
@@ -44,12 +45,34 @@ const BoxShadowGenerator = () => {
     return `rgba(${r}, ${g}, ${b}, ${opacity})`;
   };
 
-  const cssCode = `box-shadow: ${generateBoxShadow()};`;
+  const generateHTML = () => {
+    return `<div class="shadow-box"></div>`;
+  };
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(cssCode);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const generateFullCSS = () => {
+    return `.shadow-box {
+  width: 200px;
+  height: 200px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: ${generateBoxShadow()};
+}`;
+  };
+
+  const copyToClipboard = (type) => {
+    let textToCopy = '';
+    
+    if (type === 'css') {
+      textToCopy = generateFullCSS();
+    } else if (type === 'html') {
+      textToCopy = generateHTML();
+    } else {
+      textToCopy = `<!-- HTML -->\n${generateHTML()}\n\n/* CSS */\n${generateFullCSS()}`;
+    }
+    
+    navigator.clipboard.writeText(textToCopy);
+    setCopied({ ...copied, [type]: true });
+    setTimeout(() => setCopied({ ...copied, [type]: false }), 2000);
   };
 
   const updateShadow = (index, field, value) => {
@@ -63,8 +86,8 @@ const BoxShadowGenerator = () => {
   return (
     <div className="flex flex-col lg:flex-row h-full min-h-[600px]">
       {/* Preview Section */}
-      <div className="lg:w-[60%] bg-[#e5e5e5] relative flex flex-col border-b lg:border-b-0 lg:border-r border-white/10 p-8">
-         <div className="absolute inset-0 bg-grid-pattern opacity-[0.05] pointer-events-none mix-blend-multiply"></div>
+      <div className="lg:w-[65%] bg-[#020202] relative flex flex-col border-b lg:border-b-0 lg:border-r border-white/10 p-8">
+         <div className="absolute inset-0 bg-grid-pattern opacity-[0.05] pointer-events-none"></div>
          
          <div className="flex-1 flex items-center justify-center relative z-10">
             <div 
@@ -73,27 +96,71 @@ const BoxShadowGenerator = () => {
             />
          </div>
 
-         <div className="mt-8 bg-[#0A0A0A] border border-white/10 rounded-lg p-4 shadow-xl">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-bold text-util-gray uppercase tracking-wider flex items-center gap-2">
-                <FiCode className="w-3 h-3" /> CSS Output
-              </span>
-              <button
-                onClick={copyToClipboard}
-                className="text-xs font-medium flex items-center gap-1.5 text-util-gray hover:text-white transition-colors px-2 py-1 hover:bg-white/10 rounded"
-              >
-                {copied ? <FiCheck className="w-3 h-3 text-green-400" /> : <FiCopy className="w-3 h-3" />}
-                {copied ? 'Copied' : 'Copy'}
-              </button>
+         {/* Code Output */}
+         <div className="mt-8 space-y-2 relative z-10">
+            {/* Export Format Tabs */}
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs text-util-gray uppercase tracking-wider">Export:</span>
+              {['both', 'html', 'css'].map((format) => (
+                <button
+                  key={format}
+                  onClick={() => setExportFormat(format)}
+                  className={`px-3 py-1 rounded text-xs font-bold uppercase transition-all ${
+                    exportFormat === format
+                      ? 'bg-white text-black'
+                      : 'bg-white/10 text-util-gray hover:bg-white/20 hover:text-white'
+                  }`}
+                >
+                  {format}
+                </button>
+              ))}
             </div>
-            <code className="text-xs sm:text-sm font-mono text-green-400 break-all bg-black/30 p-2 rounded block">
-              {cssCode}
-            </code>
+
+            {/* Code Blocks */}
+            {(exportFormat === 'both' || exportFormat === 'html') && (
+              <div className="bg-[#0A0A0A] border border-white/10 rounded-lg p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-util-gray uppercase tracking-wider flex items-center gap-2">
+                    <FiCode className="w-3 h-3" /> HTML
+                  </span>
+                  <button
+                    onClick={() => copyToClipboard('html')}
+                    className="text-xs font-medium flex items-center gap-1.5 text-util-gray hover:text-white transition-colors px-2 py-1 hover:bg-white/10 rounded"
+                  >
+                    {copied.html ? <FiCheck className="w-3 h-3 text-green-400" /> : <FiCopy className="w-3 h-3" />}
+                    {copied.html ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <code className="text-xs sm:text-sm font-mono text-green-400 break-all bg-black/30 p-2 rounded block">
+                  {generateHTML()}
+                </code>
+              </div>
+            )}
+
+            {(exportFormat === 'both' || exportFormat === 'css') && (
+              <div className="bg-[#0A0A0A] border border-white/10 rounded-lg p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-util-gray uppercase tracking-wider flex items-center gap-2">
+                    <FiCode className="w-3 h-3" /> CSS
+                  </span>
+                  <button
+                    onClick={() => copyToClipboard('css')}
+                    className="text-xs font-medium flex items-center gap-1.5 text-util-gray hover:text-white transition-colors px-2 py-1 hover:bg-white/10 rounded"
+                  >
+                    {copied.css ? <FiCheck className="w-3 h-3 text-green-400" /> : <FiCopy className="w-3 h-3" />}
+                    {copied.css ? 'Copied' : 'Copy'}
+                  </button>
+                </div>
+                <code className="text-xs sm:text-sm font-mono text-blue-400 break-all bg-black/30 p-2 rounded block whitespace-pre">
+                  {generateFullCSS()}
+                </code>
+              </div>
+            )}
          </div>
       </div>
 
       {/* Controls Section */}
-      <div className="lg:w-[40%] bg-[#0A0A0A] p-6 lg:p-8 overflow-y-auto">
+      <div className="lg:w-[35%] bg-[#0A0A0A] p-6 lg:p-8 overflow-y-auto">
         
         {/* Presets */}
         <div className="mb-8 border-b border-white/10 pb-6">
