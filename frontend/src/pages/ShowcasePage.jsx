@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiSearch, FiGrid, FiList, FiZap } from 'react-icons/fi';
-import SEO from '../Components/common/SEO';
-import ShowcaseCard from '../Components/showcase/ShowcaseCard';
+import SEO from '../components/common/SEO';
+import ShowcaseCard from '../components/showcase/ShowcaseCard';
 import { showcaseComponents, categories, frameworks } from '../data/showcase/components';
 
 const ShowcasePage = () => {

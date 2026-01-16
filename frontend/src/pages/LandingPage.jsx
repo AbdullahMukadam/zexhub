@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { FiArrowRight, FiGithub } from 'react-icons/fi';
-import Header from "../Components/layout/Header";
-import Footer from '../Components/layout/Footer';
-import SEO from '../Components/common/SEO';
+import Header from "../components/layout/Header";
+import Footer from '../components/layout/Footer';
+import SEO from '../components/common/SEO';
 
 const LandingPage = () => {
     const navigate = useNavigate();

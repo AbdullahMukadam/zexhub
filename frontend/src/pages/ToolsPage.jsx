@@ -3,7 +3,7 @@ import { FiLayout, FiBox, FiActivity } from 'react-icons/fi';
 import GradientGenerator from '../components/tools/GradientGenerator';
 import BoxShadowGenerator from '../components/tools/BoxShadowGenerator';
 import BoxLayoutGenerator from '../components/tools/BoxLayoutGenerator';
-import SEO from '../Components/common/SEO';
+import SEO from '../components/common/SEO';
 
 const ToolsPage = () => {
   const [activeTab, setActiveTab] = useState('gradient');

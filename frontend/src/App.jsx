@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { TemplateProvider } from './context/TemplateContext';
 import LandingPage from './pages/LandingPage';
-import TemplateGallery from './components/templates/TemplateGallery';
 import EditorLayout from './components/editor/EditorLayout';
 import GitHubCallback from './components/auth/GitHubCallback';
 import Header from './components/layout/Header';
@@ -12,6 +11,7 @@ import ToolsPage from './pages/ToolsPage';
 import ComponentsPage from './pages/ComponentsPage';
 import ProductivityPage from './pages/ProductivityPage';
 import ShowcasePage from './pages/ShowcasePage';
+import TemplateGallery from './components/templates/TemplateGallery';
 
 function App() {
   return (

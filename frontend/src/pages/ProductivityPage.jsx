@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FiSearch, FiExternalLink, FiGlobe } from 'react-icons/fi';
 import { productivityTools, toolCategories } from '../data/productivity/tools';
-import SEO from '../Components/common/SEO';
+import SEO from '../components/common/SEO';
 
 const ProductivityPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
