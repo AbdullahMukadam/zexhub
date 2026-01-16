@@ -8,11 +8,24 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](package.json)
+[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](package.json)
 
 [Live Demo](https://zix.dev) · [Report Bug](https://github.com/AbdullahMukadam/Zix/issues) · [Request Feature](https://github.com/AbdullahMukadam/Zix/issues)
 
 </div>
+
+---
+
+## Recent Updates (v2.1)
+
+- ** Visual Layout Builder**: New drag-and-drop tool to create responsive layouts visually with live HTML/CSS export.
+- ** Enhanced UI/UX**: Complete overhaul of the Tools section with a scalable sidebar layout and dark mode aesthetic.
+- ** Mobile Experience**: Fully responsive header with smooth animated hamburger menu.
+- ** Performance & Fixes**: 
+  - Fixed production build issues (file extensions, case sensitivity).
+  - Switched typography to **Bricolage Grotesque** for a modern, distinctive look.
+  - Added HTML export support for all CSS generators.
+- ** Deployment Ready**: Added root-level Vercel configuration for seamless deployment.
 
 ---
 
@@ -25,9 +38,10 @@
 - **Folder-Based Templates**: Support for multi-template repositories
 
 ### CSS Tools
-- **Gradient Generator**: Create beautiful CSS gradients with live preview
-- **Box Shadow Generator**: Design layered shadows with visual controls
-- **Layout Generator**: Build responsive layouts with CSS Grid and Flexbox
+- **Visual Layout Builder**: Drag & drop layout creator with resize, snap-to-grid, and live code generation (HTML/CSS).
+- **Gradient Generator**: Create beautiful CSS gradients with multi-stop control and HTML/CSS export.
+- **Box Shadow Generator**: Design layered shadows with visual controls and instant code export.
+- **Layout Generator**: Classic Flexbox & Grid generator for quick CSS snippets.
 
 ### Component Showcase
 - **Live Interactive Demos**: Real components powered by React, Framer Motion, and GSAP
@@ -99,7 +113,7 @@
 ```
 Zix/
 ├── src/
-│   ├── Components/          # React components
+│   ├── components/          # React components (lowercase)
 │   │   ├── common/          # Shared components (SEO, etc.)
 │   │   ├── editor/          # Template editor components
 │   │   ├── forms/           # Dynamic form system

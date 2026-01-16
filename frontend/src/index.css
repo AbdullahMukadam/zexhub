@@ -78,7 +78,7 @@
 @layer base {
   body {
     /* Merged with shadcn body rule, but keeping specific util classes if needed */
-    @apply font-mono overflow-x-hidden selection:bg-util-accent selection:text-black;
+    @apply font-sans overflow-x-hidden selection:bg-util-accent selection:text-black;
     /* Overriding bg-background if util-black is preferred for the portfolio builder specifically */
     @apply bg-util-black text-util-gray;
   }

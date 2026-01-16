@@ -89,7 +89,7 @@ const BoxShadowGenerator = () => {
       <div className="lg:w-[65%] bg-[#020202] relative flex flex-col border-b lg:border-b-0 lg:border-r border-white/10 p-8">
          <div className="absolute inset-0 bg-grid-pattern opacity-[0.05] pointer-events-none"></div>
          
-         <div className="flex-1 flex items-center justify-center relative z-10">
+         <div className="flex-1 flex items-center justify-center relative z-10 bg-white/90 p-2">
             <div 
               className="w-48 h-48 bg-white rounded-2xl transition-all duration-300"
               style={{ boxShadow: generateBoxShadow() }}

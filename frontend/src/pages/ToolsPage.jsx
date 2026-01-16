@@ -103,7 +103,7 @@ const ToolsPage = () => {
                <h1 className="text-xl font-bold text-white flex items-center gap-3">
                  {activeTool?.name}
                  {activeTool?.featured && (
-                   <span className="text-[10px] bg-util-accent/10 text-util-accent border border-util-accent/20 px-2 py-0.5 rounded-full uppercase tracking-wider font-mono">
+                   <span className="text-[10px] bg-util-accent/10 text-util-accent border border-util-accent/20 px-2 py-0.5 rounded-full uppercase tracking-wider font-sans">
                      Beta
                    </span>
                  )}

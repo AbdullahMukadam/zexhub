@@ -253,6 +253,7 @@ function mycomponent(props) {
 - Use **consistent spacing** (multiples of 4px)
 - Prefer **Tailwind colors** over custom colors
 - Group classes logically: layout → spacing → colors → effects
+- **Typography**: Use `font-sans` (Bricolage Grotesque) for UI text and headings. Use `font-mono` only for code snippets.
 
 #### Example
 
@@ -280,7 +281,7 @@ function mycomponent(props) {
 1. **Create the component**
 
 ```javascript
-// src/Components/showcase/previews/MyAwesomeComponent.jsx
+// src/components/showcase/previews/MyAwesomeComponent.jsx
 import { motion } from 'framer-motion';
 
 const MyAwesomeComponent = () => {
@@ -300,7 +301,7 @@ export default MyAwesomeComponent;
 2. **Register in the registry**
 
 ```javascript
-// src/Components/showcase/previews/registry.js
+// src/components/showcase/previews/registry.js
 import MyAwesomeComponent from './MyAwesomeComponent';
 
 const previewRegistry = {

@@ -20,7 +20,7 @@ module.exports = {
     extend: {
       // Existing Project Theme
       fontFamily:{
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Bricolage Grotesque', 'sans-serif'],
         display: ['Bricolage Grotesque', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
         'space-grotesk': ['Space Grotesk', 'sans-serif'],

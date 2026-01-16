@@ -258,9 +258,9 @@ const VisualLayoutBuilder = () => {
                  </button>
               </div>
               <div className="h-6 w-[1px] bg-white/10"></div>
-              <div className="text-xs text-util-gray font-mono">
-                {boxes.length} items
-              </div>
+          <div className="text-xs text-util-gray font-sans">
+            {canvasSize.width} × {canvasSize.height}px
+          </div>
            </div>
 
            <div className="flex items-center gap-3">
@@ -499,7 +499,7 @@ const VisualLayoutBuilder = () => {
                     <div>
                        <div className="flex justify-between mb-2">
                           <label className="text-[10px] font-bold text-util-gray uppercase tracking-wider">Gap</label>
-                          <span className="text-[10px] font-mono text-white">{containerProps.gap}px</span>
+                          <span className="text-[10px] font-sans text-white">{containerProps.gap}px</span>
                        </div>
                        <input
                          type="range"
@@ -513,7 +513,7 @@ const VisualLayoutBuilder = () => {
                     <div>
                        <div className="flex justify-between mb-2">
                           <label className="text-[10px] font-bold text-util-gray uppercase tracking-wider">Padding</label>
-                          <span className="text-[10px] font-mono text-white">{containerProps.padding}px</span>
+                          <span className="text-[10px] font-sans text-white">{containerProps.padding}px</span>
                        </div>
                        <input
                          type="range"
