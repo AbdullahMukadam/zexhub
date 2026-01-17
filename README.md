@@ -1,8 +1,8 @@
-# Zix
+# ZexHub
 
 <div align="center">
 
-![Zix Banner](/frontend/public/og-image.PNG)
+![ZexHub Banner](/frontend/public/og-image.PNG)
 
 **The all-in-one developer ecosystem. Build portfolios, generate CSS, explore UI components, and ship faster.**
 
@@ -10,7 +10,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](package.json)
 
-[Live Demo](https://zix.dev) · [Report Bug](https://github.com/AbdullahMukadam/Zix/issues) · [Request Feature](https://github.com/AbdullahMukadam/Zix/issues)
+[Live Demo](https://zexhub.space) · [Report Bug](https://github.com/AbdullahMukadam/ZexHub/issues) · [Request Feature](https://github.com/AbdullahMukadam/ZexHub/issues)
 
 </div>
 
@@ -73,8 +73,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/AbdullahMukadam/Zix.git
-   cd Zix
+   git clone https://github.com/AbdullahMukadam/ZexHub.git
+   cd ZexHub
    ```
 
 2. **Install dependencies**
@@ -111,7 +111,7 @@
 ## Project Structure
 
 ```
-Zix/
+ZexHub/
 ├── src/
 │   ├── components/          # React components (lowercase)
 │   │   ├── common/          # Shared components (SEO, etc.)
@@ -200,11 +200,11 @@ The optimized production build will be in the `dist/` folder.
 
 ### Deploy to Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/AbdullahMukadam/Zix)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/AbdullahMukadam/ZexHub)
 
 ### Deploy to Netlify
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/AbdullahMukadam/Zix)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/AbdullahMukadam/ZexHub)
 
 ### Manual Deployment
 
@@ -220,11 +220,11 @@ We welcome contributions from the community! Here's how you can help:
 
 ### Ways to Contribute
 
--  **Report bugs** - [Open an issue](https://github.com/AbdullahMukadam/Zix/issues)
--  **Suggest features** - [Open a feature request](https://github.com/AbdullahMukadam/Zix/issues)
+-  **Report bugs** - [Open an issue](https://github.com/AbdullahMukadam/ZexHub/issues)
+-  **Suggest features** - [Open a feature request](https://github.com/AbdullahMukadam/ZexHub/issues)
 -  **Improve documentation** - Submit PRs for README or docs
 -  **Add components** - Create new showcase components
--  **Fix issues** - Check out [good first issues](https://github.com/AbdullahMukadam/Zix/labels/good%20first%20issue)
+-  **Fix issues** - Check out [good first issues](https://github.com/AbdullahMukadam/ZexHub/labels/good%20first%20issue)
 -  **Add templates** - Contribute new portfolio templates
 
 ### Development Workflow
@@ -322,10 +322,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## Project Stats
 
-![GitHub stars](https://img.shields.io/github/stars/AbdullahMukadam/Zix?style=social)
-![GitHub forks](https://img.shields.io/github/forks/AbdullahMukadam/Zix?style=social)
-![GitHub issues](https://img.shields.io/github/issues/AbdullahMukadam/Zix)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/AbdullahMukadam/Zix)
+![GitHub stars](https://img.shields.io/github/stars/AbdullahMukadam/ZexHub?style=social)
+![GitHub forks](https://img.shields.io/github/forks/AbdullahMukadam/ZexHub?style=social)
+![GitHub issues](https://img.shields.io/github/issues/AbdullahMukadam/ZexHub)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AbdullahMukadam/ZexHub)
 
 ---
 

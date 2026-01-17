@@ -1,6 +1,6 @@
-# Contributing to Zix
+# Contributing to ZexHub
 
-First off, thank you for considering contributing to Zix! It's people like you that make Zix such a great tool for the developer community.
+First off, thank you for considering contributing to ZexHub! It's people like you that make ZexHub such a great tool for the developer community.
 
 ## Table of Contents
 
@@ -108,14 +108,14 @@ Documentation improvements are highly valued! This includes:
 
 2. **Clone your fork**
    ```bash
-   git clone https://github.com/YOUR-USERNAME/Zix.git
-   cd Zix
-   ```
+    git clone https://github.com/YOUR-USERNAME/ZexHub.git
+    cd ZexHub
+    ```
 
 3. **Add upstream remote**
-   ```bash
-   git remote add upstream https://github.com/AbdullahMukadam/Zix.git
-   ```
+    ```bash
+    git remote add upstream https://github.com/AbdullahMukadam/ZexHub.git
+    ```
 
 4. **Install dependencies**
    ```bash
@@ -469,20 +469,20 @@ Closes #42
 
 ## Questions?
 
-- **General questions**: Open a [Discussion](https://github.com/AbdullahMukadam/Zix/discussions)
-- **Bug reports**: Open an [Issue](https://github.com/AbdullahMukadam/Zix/issues)
+- **General questions**: Open a [Discussion](https://github.com/AbdullahMukadam/ZexHub/discussions)
+- **Bug reports**: Open an [Issue](https://github.com/AbdullahMukadam/ZexHub/issues)
 - **Security issues**: Email directly (don't create public issue)
 
 ---
 
 ## Recognition
 
-Contributors will be added to our [Contributors](https://github.com/AbdullahMukadam/Zix/graphs/contributors) page and mentioned in release notes.
+Contributors will be added to our [Contributors](https://github.com/AbdullahMukadam/ZexHub/graphs/contributors) page and mentioned in release notes.
 
 ---
 
 <div align="center">
 
-**Thank you for contributing to Zix!**
+**Thank you for contributing to ZexHub!**
 
 </div>
