@@ -3,7 +3,7 @@ import githubAPI from './api.js';
 export const createAndPushTemplate = async (
   templateFiles,
   repoName,
-  description = 'Created with Zix'
+  description = 'Created with ZexHub'
 ) => {
   try {
     // Step 1: Create new repository
@@ -13,17 +13,16 @@ export const createAndPushTemplate = async (
     const user = await githubAPI.getUser();
     
     // Step 3: Upload all files
-    const uploadPromises = templateFiles.map(file =>
-      githubAPI.uploadFile(
+    // process files sequentially to avoid race conditions with git refs
+    for (const file of templateFiles) {
+      await githubAPI.uploadFile(
         user.login,
         repoName,
         file.path,
         file.content,
         `Add ${file.path}`
-      )
-    );
-    
-    await Promise.all(uploadPromises);
+      );
+    }
     
     return {
       success: true,
@@ -43,17 +42,16 @@ export const pushToExistingRepo = async (
   repoName
 ) => {
   try {
-    const uploadPromises = templateFiles.map(file =>
-      githubAPI.uploadFile(
+    // process files sequentially to avoid race conditions with git refs
+    for (const file of templateFiles) {
+      await githubAPI.uploadFile(
         owner,
         repoName,
         file.path,
         file.content,
         `Update ${file.path}`
-      )
-    );
-    
-    await Promise.all(uploadPromises);
+      );
+    }
     
     return {
       success: true,

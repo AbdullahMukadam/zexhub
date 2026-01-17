@@ -2,11 +2,11 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, keywords, image, url }) => {
-  const siteName = 'Zix';
-  const defaultTitle = 'Zix - The All-in-One Developer Ecosystem';
+  const siteName = 'ZexHub';
+  const defaultTitle = 'ZexHub - The All-in-One Developer Ecosystem';
   const defaultDescription = 'Build portfolios, generate CSS, explore UI components, and boost productivity. The ultimate toolkit for modern developers.';
-  const defaultImage = 'https://zix.dev/og-image.jpg'; // Replace with actual URL in production
-  const defaultUrl = 'https://zix.dev'; // Replace with actual URL
+  const defaultImage = 'https://zexhub.space/og-image.jpg'; // Replace with actual URL in production
+  const defaultUrl = 'https://zexhub.space'; // Replace with actual URL
 
   const metaTitle = title ? `${title} | ${siteName}` : defaultTitle;
   const metaDescription = description || defaultDescription;

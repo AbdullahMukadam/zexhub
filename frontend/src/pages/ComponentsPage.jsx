@@ -17,7 +17,7 @@ const ComponentsPage = () => {
         title="UI Component Library"
         description="A collection of beautiful, copy-paste React and HTML/CSS components. Buttons, cards, inputs, and loaders for your next project."
         keywords="ui library, react components, tailwind components, css components, free ui kit, frontend components"
-        url="https://zix.dev/components"
+        url="https://zexhub.space/components"
       />
       
       {/* Background Grid */}
@@ -25,7 +25,7 @@ const ComponentsPage = () => {
 
       {/* Hero Header */}
       <div className="relative border-b border-white/10 bg-[#020202]">
-        <div className="max-w-[1400px] mx-auto px-6 py-20">
+        <div className="max-w-[1400px] mx-auto px-6 py-4">
           <div className="flex flex-col items-start gap-6">
             
             <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter text-white leading-[0.9]">

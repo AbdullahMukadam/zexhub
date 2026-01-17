@@ -38,7 +38,7 @@ const ProductivityPage = () => {
         title="Developer Productivity Tools"
         description="Curated list of the best developer tools, assets, and utilities. Find design resources, icons, and generators to boost your workflow."
         keywords="developer tools, productivity resources, web design tools, coding assets, free developer resources"
-        url="https://zix.dev/productivity"
+        url="https://zexhub.space/productivity"
       />
       
       {/* Background Grid */}
@@ -46,7 +46,7 @@ const ProductivityPage = () => {
 
       {/* Hero Header */}
       <div className="relative border-b border-white/10 bg-[#020202]">
-        <div className="max-w-[1400px] mx-auto px-6 py-20">
+        <div className="max-w-[1400px] mx-auto px-6 py-4">
           <div className="flex flex-col items-start gap-6">
             
             <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter text-white leading-[0.9]">

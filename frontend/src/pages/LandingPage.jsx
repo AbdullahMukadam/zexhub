@@ -39,7 +39,7 @@ const LandingPage = () => {
                                 Start Building <FiArrowRight />
                             </button>
                             <button
-                                onClick={() => window.open('https://github.com/AbdullahMukadam/zix', '_blank')}
+                                onClick={() => window.open('https://github.com/AbdullahMukadam/ZexHub', '_blank')}
                                 className="px-8 py-4 bg-[#111] border border-white/10 text-white font-bold text-sm rounded-full hover:bg-[#222] hover:border-white/20 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
                             >
                                 <FiGithub className="text-lg" /> Star on GitHub

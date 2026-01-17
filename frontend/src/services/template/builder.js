@@ -11,9 +11,9 @@ export const generateReadme = (templateConfig, userData) => {
   
   return `# ${userData.name || 'My Website'}
 
-${userData.bio || 'Website built with Zix'}
+${userData.bio || 'Website built with ZexHub'}
 
-Built with [Zix](https://github.com/AbdullahMuakdam/Portfolio-Website-Builder)
+Built with [ZexHub](https://github.com/AbdullahMuakdam/Portfolio-Website-Builder)
 
 Template: ${name}
 

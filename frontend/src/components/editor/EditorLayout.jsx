@@ -11,7 +11,7 @@ import { FiEye, FiEyeOff, FiDownload, FiArrowLeft, FiMonitor, FiTablet, FiSmartp
 const EditorLayout = () => {
   const { templateId } = useParams();
   const navigate = useNavigate();
-  const { getTemplateById } = useTemplates();
+  const { getTemplateById, templates, loading: templatesLoading } = useTemplates();
   const {
     selectedTemplate,
     selectTemplate,
@@ -27,13 +27,13 @@ const EditorLayout = () => {
   const [viewMode, setViewMode] = useState('desktop');
 
   useEffect(() => {
-    if (!selectedTemplate && templateId) {
+    if (!selectedTemplate && templateId && templates.length > 0) {
       const template = getTemplateById(templateId);
       if (template) {
         selectTemplate(template);
       }
     }
-  }, [templateId]);
+  }, [templateId, templates, selectedTemplate]);
 
   useEffect(() => {
     if (config) updateTemplateConfig(config);
@@ -51,7 +51,9 @@ const EditorLayout = () => {
     navigate('/templates');
   };
 
-  if (loading) {
+  const isInitialLoad = (loading || templatesLoading) && (!files || files.length === 0);
+
+  if (isInitialLoad) {
     return (
       <div className="min-h-screen bg-[#020202] flex items-center justify-center font-mono">
         <div className="text-center">

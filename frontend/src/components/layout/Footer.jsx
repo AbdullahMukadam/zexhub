@@ -17,7 +17,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="flex flex-col items-start max-w-sm">
             <Link to="/" className="flex items-center gap-2 text-white font-display font-bold text-2xl tracking-tighter mb-6">
-               Zix.
+               ZexHub.
             </Link>
             <p className="text-util-gray/60 leading-relaxed mb-8">
               The ultimate developer ecosystem. <br/>
@@ -53,7 +53,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col items-center gap-4 text-xs text-util-gray/40 font-mono text-center">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-            <span>© {new Date().getFullYear()} Zix. OPEN SOURCE. MIT LICENSE.</span>
+            <span>© {new Date().getFullYear()} ZexHub. OPEN SOURCE. MIT LICENSE.</span>
             <span className="hidden sm:inline text-white/10">|</span>
             <span>Made by Abdullah Mukadam</span>
           </div>

@@ -17,7 +17,7 @@ export const deployToGitHub = async (files, userData, repoName, templateType = '
     const result = await createAndPushTemplate(
       filesWithReadme,
       repoName,
-      userData.bio || 'Website created with Zix (HTML Template)'
+      userData.bio || 'Website created with ZexHub (HTML Template)'
     );
     
     return result;

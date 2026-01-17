@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext.jsx';
 import useGitHub from '../../hooks/useGitHub.js';
-import { FiDownload, FiGithub, FiX, FiCheck, FiAlertCircle, FiTerminal, FiPackage } from 'react-icons/fi';
+import { FiDownload, FiGithub, FiX, FiCheck, FiAlertCircle, FiTerminal, FiPackage, FiLoader } from 'react-icons/fi';
 
 const ExportModal = ({ onClose, template, templateFiles, formData }) => {
   const { isAuthenticated, login } = useAuth();

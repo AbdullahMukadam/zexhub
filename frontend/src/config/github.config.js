@@ -10,7 +10,7 @@ export const GITHUB_CONFIG = {
 };
 
 export const APP_CONFIG = {
-  appName: 'Zix',
+  appName: 'ZexHub',
   version: '2.0.0',
   maxTemplatesPerUser: 50,
   maxFileSize: 50 * 1024 * 1024, // 50MB
