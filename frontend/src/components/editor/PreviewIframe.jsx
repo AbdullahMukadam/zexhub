@@ -18,7 +18,7 @@ const PreviewIframe = ({ templateFiles, formData, templateType = 'html' }) => {
       </div>
     );
   }
-  
+
   // HTML preview (original implementation)
   const iframeRef = useRef(null);
   const [loading, setLoading] = useState(true);
@@ -70,7 +70,7 @@ const PreviewIframe = ({ templateFiles, formData, templateType = 'html' }) => {
 
       // Find all CSS files
       const cssFiles = templateFiles.filter(f => f.path.endsWith('.css'));
-      
+
       // Find all JS files
       const jsFiles = templateFiles.filter(f => f.path.endsWith('.js'));
 
@@ -107,11 +107,11 @@ const PreviewIframe = ({ templateFiles, formData, templateType = 'html' }) => {
       } else {
         renderedHTML = renderedHTML + jsInjects;
       }
-      
+
       // Create a data URL for the iframe
       const blob = new Blob([renderedHTML], { type: 'text/html' });
       const url = URL.createObjectURL(blob);
-      
+
       if (iframeRef.current) {
         iframeRef.current.src = url;
       }
@@ -154,34 +154,30 @@ const PreviewIframe = ({ templateFiles, formData, templateType = 'html' }) => {
   return (
     <div className="w-full h-full bg-white overflow-hidden relative border-none">
       {loading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-util-black z-10 font-mono">
-          <div className="text-center">
-            <div className="relative w-16 h-16 mx-auto mb-8">
-               <div className="absolute inset-0 border border-util-accent animate-spin-slow"></div>
-               <FiLoader className="absolute inset-0 m-auto w-6 h-6 text-util-accent animate-pulse" />
-            </div>
-            <p className="text-white font-black uppercase tracking-[0.3em] text-[10px]">Compiling_Source...</p>
+        <div className="absolute inset-0 flex items-center justify-center z-10 font-mono">
+          <div className="text-center p-8 rounded-lg">
+            <p className="text-whitw font-bold uppercase mb-6 tracking-widest text-xs">loading..</p>
           </div>
         </div>
       )}
-      
+
       {/* Update status overlay */}
       {!loading && (isUpdating || hasPendingChanges) && (
         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
           <div className="absolute inset-0 bg-util-black/60 backdrop-blur-[2px]"></div>
           <div className="absolute inset-0 animate-scan bg-gradient-to-b from-transparent via-util-accent/20 to-transparent h-40 w-full"></div>
-          
+
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
-             <div className="bg-black border border-util-accent text-util-accent text-[10px] px-4 py-2 font-black uppercase tracking-[0.4em] shadow-[0_0_20px_rgba(255,51,0,0.3)]">
-               {isUpdating ? 'Syncing_Core...' : 'Processing_Input...'}
-             </div>
+            <div className="bg-black border text-white text-[10px] px-4 py-2 font-black uppercase tracking-[0.4em] shadow-[0_0_20px_rgba(255,51,0,0.3)]">
+              {isUpdating ? 'Syncing_Core...' : 'Processing_Input...'}
+            </div>
           </div>
         </div>
       )}
-      
+
       {/* Grid Overlay for technical feel */}
       <div className="absolute inset-0 pointer-events-none opacity-20 z-[2] grid-overlay"></div>
-      
+
       <iframe
         ref={iframeRef}
         onLoad={handleIframeLoad}
