@@ -52,10 +52,10 @@ const ShowcasePage = () => {
 
       {/* Hero Header */}
       <div className="relative border-b border-white/10 bg-[#020202]">
-        <div className="max-w-[1400px] mx-auto px-6 py-4">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-4">
           <div className="flex flex-col items-start gap-6">
             
-            <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter text-white leading-[0.9]">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tighter text-white leading-[0.9]">
               Showcase.
             </h1>
             
@@ -68,7 +68,7 @@ const ShowcasePage = () => {
 
       {/* Filters Bar */}
       <div className="sticky top-16 z-30 border-b border-white/10 bg-[#020202]/80 backdrop-blur-xl">
-        <div className="max-w-[1400px] mx-auto px-6 py-4">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-4">
           <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
             
             {/* Left: Search */}
@@ -106,7 +106,7 @@ const ShowcasePage = () => {
       </div>
 
       {/* Components Grid */}
-      <div className="max-w-[1400px] mx-auto px-6 py-8">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-8">
         {/* Results Count and Pagination Info */}
         <div className="mb-6 flex items-center justify-between">
           <p className="text-sm text-util-gray/70">
@@ -130,7 +130,7 @@ const ShowcasePage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
               {paginatedComponents.map((component) => (
                 <ShowcaseCard key={component.id} component={component} />

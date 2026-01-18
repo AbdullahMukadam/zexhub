@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 bg-[#020202]/80 backdrop-blur-md border-b border-white/10 flex justify-between items-center h-16 px-6 lg:px-8">
+      <nav className="fixed top-0 w-full z-50 bg-[#020202]/80 backdrop-blur-md border-b border-white/10 flex justify-between items-center h-16 px-4 md:px-6 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 font-bold text-white hover:opacity-80 transition-opacity z-50">
           <span className="text-sm tracking-wide font-sans">ZexHub</span>

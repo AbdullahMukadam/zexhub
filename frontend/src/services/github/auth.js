@@ -1,16 +1,22 @@
-import { GITHUB_CONFIG } from '../../config/github.config.js';
+import { GITHUB_CONFIG } from "@/config/github.config";
 
-export const initiateGitHubOAuth = () => {
-  const params = new URLSearchParams({
-    client_id: GITHUB_CONFIG.clientId,
-    redirect_uri: GITHUB_CONFIG.redirectUri,
-    scope: GITHUB_CONFIG.scope,
-    state: generateRandomState()
-  });
 
-  const authUrl = `${GITHUB_CONFIG.authUrl}?${params.toString()}`;
-  window.location.href = authUrl;
+export const initiateGitHubOAuth = async () => {
+  try {
+    // Get the auth URL from the backend
+    const response = await fetch(`${GITHUB_CONFIG.tokenUrl}/url`);
+    if (!response.ok) {
+      throw new Error('Failed to get auth URL');
+    }
+    const { url } = await response.json();
+    window.location.href = url;
+  } catch (error) {
+    console.error('Error initiating OAuth:', error);
+    // Fallback if backend fails (though ideally we shouldn't have client_id here)
+    alert("Failed to connect to authentication server");
+  }
 };
+
 
 export const handleOAuthCallback = async (code) => {
   try {
@@ -35,11 +41,6 @@ export const handleOAuthCallback = async (code) => {
   }
 };
 
-
-function generateRandomState() {
-  return Math.random().toString(36).substring(2, 15) + 
-         Math.random().toString(36).substring(2, 15);
-}
 
 export const logout = () => {
   sessionStorage.removeItem('github_token');

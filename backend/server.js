@@ -59,6 +59,17 @@ app.post("/auth/github", async (req, res) => {
   }
 });
 
+app.get("/auth/github/url", (req, res) => {
+  const params = new URLSearchParams({
+    client_id: process.env.GITHUB_CLIENT_ID,
+    redirect_uri: process.env.GITHUB_REDIRECT_URI || 'http://localhost:5173/auth/callback',
+    scope: 'repo user',
+    state: Math.random().toString(36).substring(7)
+  });
+  
+  res.json({ url: `https://github.com/login/oauth/authorize?${params.toString()}` });
+});
+
 app.get("/", (req, res) => {
     res.send("GitHub OAuth Backend Server - Running ✓")
 })

@@ -9,7 +9,7 @@ const Footer = () => {
       {/* Background Grid */}
       <div className="absolute inset-0 bg-grid-overlay bg-[length:50px_50px] opacity-[0.05] pointer-events-none"></div>
 
-      <div className="max-w-[1400px] mx-auto px-6 pt-20 pb-10 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-20 pb-10 relative z-10">
         
         {/* Main Content - Centered Flex Container */}
         <div className="flex flex-col md:flex-row justify-center items-start gap-12 md:gap-24 mb-20">

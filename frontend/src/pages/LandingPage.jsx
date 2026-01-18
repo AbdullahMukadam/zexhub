@@ -18,10 +18,10 @@ const LandingPage = () => {
 
             <main className="relative z-10 flex-grow flex flex-col justify-center py-24 md:py-32">
                 {/* Hero Section */}
-                <section className="max-w-[1400px] mx-auto px-6 w-full">
+                <section className="max-w-[1400px] mx-auto px-4 md:px-6 w-full">
                     <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
 
-                        <h1 className="text-6xl md:text-8xl font-display font-bold text-white tracking-tight mb-8 leading-[0.95] animate-fade-in-up delay-100 flex flex-col items-center">
+                        <h1 className="text-5xl sm:text-6xl md:text-8xl font-display font-bold text-white tracking-tight mb-8 leading-[0.95] animate-fade-in-up delay-100 flex flex-col items-center">
                             The All-in-One <br />
                             Developer
                            <HandlebarsLandingPage>Ecosystem</HandlebarsLandingPage>

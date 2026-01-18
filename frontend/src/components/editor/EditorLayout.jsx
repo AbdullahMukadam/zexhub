@@ -80,49 +80,49 @@ const EditorLayout = () => {
   return (
     <div className="min-h-screen bg-[#020202] font-sans relative overflow-hidden flex flex-col text-white">
       {/* Header */}
-      <div className="bg-[#020202]/80 backdrop-blur-md border-b border-white/10 z-30 flex justify-between items-center h-16 px-6">
-        <div className="flex items-center gap-6">
+      <div className="bg-[#020202]/80 backdrop-blur-md border-b border-white/10 z-30 flex justify-between items-center h-16 px-4 md:px-6">
+        <div className="flex items-center gap-4 md:gap-6">
           <button onClick={handleBack} className="p-2 -ml-2 text-util-gray hover:text-white hover:bg-white/5 rounded-md transition-all">
             <FiArrowLeft className="w-5 h-5" />
           </button>
           <div className="flex items-center gap-3">
-             <div className="w-8 h-8 rounded bg-[#111] border border-white/10 flex items-center justify-center">
+             <div className="w-8 h-8 rounded bg-[#111] border border-white/10 flex items-center justify-center hidden sm:flex">
                 <span className="font-mono font-bold text-xs">V2</span>
              </div>
              <div className="flex flex-col">
-                <span className="text-[10px] font-bold text-util-gray uppercase tracking-widest mb-0.5">Project</span>
-                <span className="text-sm font-bold tracking-wide">{selectedTemplate.name}</span>
+                <span className="text-[10px] font-bold text-util-gray uppercase tracking-widest mb-0.5 hidden sm:block">Project</span>
+                <span className="text-sm font-bold tracking-wide truncate max-w-[150px] sm:max-w-xs">{selectedTemplate.name}</span>
              </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           <div className="h-8 w-[1px] bg-white/10 mx-2 hidden md:block"></div>
           
           <button
             onClick={() => setShowPreview(!showPreview)}
-            className="px-4 py-2 text-util-gray hover:text-white transition-colors flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:bg-white/5 rounded"
+            className="px-3 md:px-4 py-2 text-util-gray hover:text-white transition-colors flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:bg-white/5 rounded"
           >
             {showPreview ? <FiEyeOff className="w-4 h-4" /> : <FiEye className="w-4 h-4" />}
-            <span className="hidden md:inline">{showPreview ? 'Hide Preview' : 'Show Preview'}</span>
+            <span className="hidden lg:inline">{showPreview ? 'Hide Preview' : 'Show Preview'}</span>
           </button>
 
           <button
             onClick={() => setShowExportModal(true)}
-            className="px-6 py-2 bg-white text-black font-bold uppercase text-xs tracking-widest hover:bg-gray-200 transition-colors flex items-center gap-2 rounded shadow-lg shadow-white/5"
+            className="px-4 md:px-6 py-2 bg-white text-black font-bold uppercase text-xs tracking-widest hover:bg-gray-200 transition-colors flex items-center gap-2 rounded shadow-lg shadow-white/5"
           >
             <FiDownload className="w-4 h-4" />
-            <span>Publish</span>
+            <span className="hidden sm:inline">Publish</span>
           </button>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex relative z-10 overflow-hidden">
+      <div className="flex-1 flex flex-col lg:flex-row relative z-10 overflow-hidden">
         
         {/* Canvas Area (Preview) */}
         {showPreview && (
-          <div className="flex-1 flex flex-col relative overflow-hidden bg-[#050505]">
+          <div className="h-[40vh] lg:h-auto lg:flex-1 flex flex-col relative overflow-hidden bg-[#050505] border-b lg:border-b-0 lg:border-r border-white/10">
             <div className="absolute inset-0 bg-grid-pattern opacity-[0.07] pointer-events-none"></div>
             
             {/* Canvas Toolbar */}
@@ -172,7 +172,7 @@ const EditorLayout = () => {
         )}
 
         {/* Properties Panel (Form) */}
-        <div className={`${showPreview ? 'w-[400px] border-l border-white/10' : 'w-full'} flex-shrink-0 overflow-y-auto bg-[#020202] transition-all duration-300 z-20`}>
+        <div className={`${showPreview ? 'w-full lg:w-[400px] border-l border-white/10' : 'w-full'} flex-1 lg:flex-none overflow-y-auto bg-[#020202] transition-all duration-300 z-20`}>
           <div className="p-0">
             <div className="sticky top-0 z-10 bg-[#020202]/95 backdrop-blur px-6 py-4 border-b border-white/10 flex justify-between items-center">
                <div className="flex items-center gap-2 text-white">

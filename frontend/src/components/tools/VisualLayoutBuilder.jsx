@@ -295,7 +295,7 @@ const VisualLayoutBuilder = () => {
       <div className="lg:w-[70%] bg-[#020202] relative flex flex-col border-b lg:border-b-0 lg:border-r border-white/10">
         
         {/* Toolbar */}
-        <div className="h-14 border-b border-white/10 flex items-center justify-between px-6 bg-[#050505]">
+        <div className="h-14 border-b border-white/10 flex items-center justify-between px-4 md:px-6 bg-[#050505]">
            <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
                  <button
@@ -327,7 +327,7 @@ const VisualLayoutBuilder = () => {
         </div>
 
         {/* Canvas Area */}
-        <div className="flex-1 overflow-auto bg-[#020202] p-8 relative custom-scrollbar">
+        <div className="flex-1 overflow-auto bg-[#020202] p-4 md:p-8 relative custom-scrollbar">
             {/* Grid Background */}
             <div className="absolute inset-0 bg-grid-pattern opacity-[0.08] pointer-events-none"></div>
             <div className="absolute inset-0 bg-dots-pattern opacity-[0.05] pointer-events-none"></div>

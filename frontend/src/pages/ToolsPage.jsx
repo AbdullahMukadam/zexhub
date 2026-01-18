@@ -98,7 +98,7 @@ const ToolsPage = () => {
       {/* Main Content Area */}
       <div className="flex-1 overflow-hidden h-[calc(100vh-64px)] md:h-[calc(100vh-64px)] bg-[#020202] relative">
          {/* Tool Header */}
-         <div className="absolute top-0 left-0 right-0 z-10 bg-[#020202]/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between">
+         <div className="absolute top-0 left-0 right-0 z-10 bg-[#020202]/80 backdrop-blur-md border-b border-white/10 px-4 md:px-6 py-4 flex items-center justify-between">
             <div>
                <h1 className="text-xl font-bold text-white flex items-center gap-3">
                  {activeTool?.name}
