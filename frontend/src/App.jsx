@@ -10,6 +10,7 @@ import ToolsPage from './pages/ToolsPage.jsx';
 import ComponentsPage from './pages/ComponentsPage.jsx';
 import ProductivityPage from './pages/ProductivityPage.jsx';
 import ShowcasePage from './pages/ShowcasePage.jsx';
+import ShowcaseItemPage from './pages/ShowcaseItemPage.jsx';
 import TemplateGallery from './components/templates/TemplateGallery.jsx';
 import EditorLayout from './components/editor/EditorLayout.jsx';
 
@@ -77,6 +78,18 @@ function App() {
                 <>
                   <Header />
                   <ShowcasePage />
+                  <Footer />
+                </>
+              }
+            />
+
+            {/* Showcase Item Page */}
+            <Route
+              path="/showcase/:id"
+              element={
+                <>
+                  <Header />
+                  <ShowcaseItemPage />
                   <Footer />
                 </>
               }

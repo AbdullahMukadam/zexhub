@@ -82,7 +82,21 @@ module.exports = {
           gray: '#e5e5e5',
           accent: '#ff3300', // International Orange
           border: '#333333'
+        },
+        // Neumorphic Music UI Colors
+        neu: {
+          base: '#EFEEEE', 
+          text: '#4A5568',
+          accent: '#FF7F50',
+          black: '#2D3748'
         }
+      },
+      boxShadow: {
+        'neu-out': '6px 6px 12px rgba(163, 145, 145, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.9)',
+        'neu-card': '6px 6px 12px rgba(163, 145, 145, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.8)',
+        'neu-in': 'inset 5px 5px 10px rgba(163, 145, 145, 0.3), inset -5px -5px 10px rgba(255, 255, 255, 0.9)',
+        'neu-in-sm': 'inset 3px 3px 6px rgba(163, 145, 145, 0.4), inset -3px -3px 6px rgba(255, 255, 255, 0.9)',
+        'neu-dark': '6px 6px 12px rgba(45, 55, 72, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.1)',
       },
       backgroundImage: {
         'grid-overlay': "linear-gradient(to right, #333333 1px, transparent 1px), linear-gradient(to bottom, #333333 1px, transparent 1px)",

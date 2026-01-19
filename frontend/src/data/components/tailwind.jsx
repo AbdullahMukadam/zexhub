@@ -599,6 +599,21 @@ export default function SpotlightCard() {
     )
   },
   {
+    id: 'btn-3d-neu',
+    title: 'Neumorphic 3D Button',
+    category: 'buttons',
+    code: `<button className="px-6 py-3 bg-[#EFEEEE] text-[#4A5568] font-bold rounded-xl shadow-[6px_6px_12px_rgba(163,145,145,0.4),-6px_-6px_12px_rgba(255,255,255,0.9)] border-b-4 border-black/15 active:translate-y-1 active:border-b-0 active:shadow-[inset_0px_2px_4px_rgba(0,0,0,0.1)] transition-all duration-100 ease-[cubic-bezier(0.4,0,0.2,1)]">
+  3D Button
+</button>`,
+    preview: () => (
+      <div className="p-8 bg-[#EFEEEE] rounded-xl flex items-center justify-center">
+        <button className="px-6 py-3 bg-[#EFEEEE] text-[#4A5568] font-bold rounded-xl shadow-[6px_6px_12px_rgba(163,145,145,0.4),-6px_-6px_12px_rgba(255,255,255,0.9)] border-b-4 border-black/15 active:translate-y-1 active:border-b-0 active:shadow-[inset_0px_2px_4px_rgba(0,0,0,0.1)] transition-all duration-100 ease-[cubic-bezier(0.4,0,0.2,1)]">
+          3D Button
+        </button>
+      </div>
+    )
+  },
+  {
     id: 'card-glass-2',
     title: 'Frosted Glass Card',
     category: 'cards',

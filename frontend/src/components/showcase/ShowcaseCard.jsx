@@ -1,213 +1,99 @@
-import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiCode, FiEye, FiExternalLink, FiUser, FiPlay } from 'react-icons/fi';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { FiArrowRight, FiUser } from 'react-icons/fi';
 import { FaTwitter } from 'react-icons/fa';
-import CodeBlock from './CodeBlock.jsx';
-import previewRegistry from './previews/registry'; // Import the registry
+import previewRegistry from './previews/registry';
 
 const ShowcaseCard = ({ component }) => {
-  const [showCode, setShowCode] = useState(false);
-  const [activeCodeTab, setActiveCodeTab] = useState('jsx');
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef(null);
-
-  // Determine if this is a media showcase or live preview
-  const hasMedia = component.media !== null && component.media !== undefined;
   const hasLivePreview = component.hasLivePreview === true;
-  const hasCode = component.code !== null && component.code !== undefined;
   const hasCreator = component.creator !== null && component.creator !== undefined;
-
-  // Get the Preview Component from registry (for live previews)
+  
+  // Get the Preview Component from registry
   const PreviewComponent = previewRegistry[component.id];
 
-  // Get available code formats
-  const availableFormats = hasCode 
-    ? Object.entries(component.code)
-        .filter(([_, code]) => code !== null)
-        .map(([format]) => format)
-    : [];
-
-  // Set initial active tab to first available format
-  useState(() => {
-    if (availableFormats.length > 0 && !availableFormats.includes(activeCodeTab)) {
-      setActiveCodeTab(availableFormats[0]);
-    }
-  }, [component.id]);
-
-  const handlePlayVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-      setIsPlaying(true);
-    }
-  };
-
-  const handlePauseVideo = () => {
-    setIsPlaying(false);
-  };
-
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      className="group relative flex flex-col bg-[#050505] border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors"
-    >
-      {/* Preview/Media Area */}
-      <div className="relative h-[300px] w-full flex items-center justify-center bg-[#0a0a0a] border-b border-white/5 overflow-hidden">
-        {/* Subtle Grid Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        
-        <div className="relative z-10 w-full h-full flex items-center justify-center">
-          {hasMedia ? (
-            // Video or Image showcase
-            component.media.type === 'video' ? (
-              <div className="relative w-full h-full group/video">
-                <video
-                  ref={videoRef}
-                  src={component.media.url}
-                  loop
-                  muted
-                  playsInline
-                  onEnded={handlePauseVideo}
-                  className="w-full h-full object-cover"
-                />
-                {/* Play Button Overlay */}
-                {!isPlaying && (
-                  <button
-                    onClick={handlePlayVideo}
-                    className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm group-hover/video:bg-black/40 transition-all"
-                  >
-                    <div className="w-16 h-16 rounded-full bg-white/10 border-2 border-white/50 flex items-center justify-center backdrop-blur-md group-hover/video:scale-110 group-hover/video:bg-white/20 transition-all">
-                      <FiPlay className="w-8 h-8 text-white ml-1" />
-                    </div>
-                  </button>
-                )}
+    <Link to={`/showcase/${component.id}`} className="block h-full">
+      <motion.div
+        layout
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        whileHover={{ y: -4, transition: { duration: 0.2 } }}
+        className="group h-full flex flex-col bg-[#050505] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 hover:shadow-2xl hover:shadow-white/5 transition-all duration-300"
+      >
+        {/* Preview Area */}
+        <div className="relative h-[240px] w-full flex items-center justify-center bg-[#0a0a0a] border-b border-white/5 overflow-hidden group-hover:bg-[#0f0f0f] transition-colors">
+          {/* Grid Background */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          
+          <div className="relative z-10 w-full h-full flex items-center justify-center p-4">
+            {hasLivePreview && PreviewComponent ? (
+              <div className="scale-[0.6] origin-center pointer-events-none select-none">
+                <PreviewComponent />
               </div>
             ) : (
-              <img
-                src={component.media.url}
-                alt={component.title}
-                className="w-full h-full object-cover"
-              />
-            )
-          ) : hasLivePreview && PreviewComponent ? (
-            // Live interactive preview
-            <div className="p-6 w-full flex items-center justify-center">
-              <PreviewComponent />
-            </div>
-          ) : (
-            // No preview available
-            <div className="text-util-gray/30 text-xs font-mono uppercase tracking-widest">
-              No Preview
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Info Section */}
-      <div className="p-6 flex-grow flex flex-col bg-[#050505]">
-        <div className="flex items-start justify-between mb-3">
-          <h3 className="text-xl font-display font-bold text-white leading-tight">
-            {component.title}
-          </h3>
-          {hasCreator && (
-            <a
-              href={`https://x.com/${component.creator.twitter.replace('@', '')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1DA1F2]/10 border border-[#1DA1F2]/20 text-[#1DA1F2] hover:bg-[#1DA1F2]/20 transition-all group/twitter"
-            >
-              <FaTwitter className="w-3 h-3" />
-              <span className="text-[10px] font-bold">{component.creator.twitter}</span>
-            </a>
-          )}
-        </div>
-        
-        <p className="text-sm text-util-gray/60 leading-relaxed mb-4">
-          {component.description}
-        </p>
-
-        {/* Tags */}
-        <div className="mb-6 flex flex-wrap gap-2">
-          {component.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-2 py-1 rounded text-[10px] font-medium text-util-gray/50 bg-white/[0.02] border border-white/5"
-            >
-              #{tag}
-            </span>
-          ))}
+              // Fallback for items without live preview (formerly videos/images)
+              // We can show a placeholder or the image if it exists (but user said remove videos)
+              // We'll prioritize the image if it's an image type, otherwise a generic placeholder
+              component.media?.type === 'image' ? (
+                <img 
+                  src={component.media.url} 
+                  alt={component.title} 
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                />
+              ) : (
+                 <div className="flex flex-col items-center gap-3 text-util-gray/30 group-hover:text-util-gray/50 transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                    </div>
+                    <span className="text-xs font-mono uppercase tracking-widest">View Component</span>
+                 </div>
+              )
+            )}
+          </div>
         </div>
 
-        {/* Action Footer */}
-        <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between gap-3 flex-wrap">
-          {/* View Code Button - only show if code is available */}
-          {hasCode && (
-            <button
-              onClick={() => setShowCode(!showCode)}
-              className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider transition-colors ${
-                showCode ? 'text-white' : 'text-util-gray hover:text-white'
-              }`}
-            >
-              <FiCode className="w-4 h-4" />
-              {showCode ? "Hide Code" : "View Code"}
-            </button>
-          )}
+        {/* Info Section */}
+        <div className="p-6 flex-grow flex flex-col">
+          <div className="flex items-start justify-between mb-2">
+            <h3 className="text-lg font-display font-bold text-white group-hover:text-blue-400 transition-colors">
+              {component.title}
+            </h3>
+          </div>
+          
+          <p className="text-sm text-util-gray/60 leading-relaxed mb-4 line-clamp-2">
+            {component.description}
+          </p>
 
-          {/* Creator Attribution - if no code/source/demo */}
-          {!hasCode && !component.sourceUrl && !component.demoUrl && hasCreator && (
-            <div className="flex items-center gap-2 text-xs text-util-gray/60">
-              <FiUser className="w-3.5 h-3.5" />
-              <span>by {component.creator.name}</span>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Code View (Expandable) - only render if code is available */}
-      {hasCode && (
-        <AnimatePresence>
-          {showCode && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="bg-[#020202] border-t border-white/5"
-            >
-              <div className="p-0">
-                {/* Tabs */}
-                {availableFormats.length > 1 && (
-                  <div className="flex border-b border-white/5">
-                    {availableFormats.map((format) => (
-                      <button
-                        key={format}
-                        onClick={() => setActiveCodeTab(format)}
-                        className={`px-4 py-2 text-[10px] font-bold uppercase tracking-wider transition-colors ${
-                          activeCodeTab === format
-                            ? 'text-white bg-white/5 border-b-2 border-util-accent'
-                            : 'text-util-gray/50 hover:text-white'
-                        }`}
-                      >
-                        {format}
-                      </button>
-                    ))}
-                  </div>
-                )}
-                
-                <div className="relative">
-                  <CodeBlock
-                    code={component.code[activeCodeTab]}
-                    language={activeCodeTab}
-                  />
+          <div className="mt-auto flex items-center justify-between pt-4 border-t border-white/5">
+            {hasCreator ? (
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold">
+                  {component.creator.name.charAt(0)}
                 </div>
+                <span className="text-xs text-util-gray/60">{component.creator.name}</span>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      )}
-    </motion.div>
+            ) : (
+              <span className="text-xs text-util-gray/60">Community</span>
+            )}
+            
+            <div className="flex gap-2">
+              {component.tags.slice(0, 2).map(tag => (
+                <span key={tag} className="text-[10px] px-1.5 py-0.5 rounded bg-white/5 text-util-gray/40 border border-white/5">
+                  #{tag}
+                </span>
+              ))}
+              {component.tags.length > 2 && (
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/5 text-util-gray/40 border border-white/5">
+                  +{component.tags.length - 2}
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </Link>
   );
 };
 

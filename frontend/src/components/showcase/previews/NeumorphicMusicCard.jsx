@@ -1,139 +1,4 @@
-// Showcase Components Data Structure
-// This file contains showcase items for cool UI components, dashboards, hero sections, etc.
-// Each item can have:
-// - media: { type: 'video' | 'image', url: string } - for showcasing the component
-// - creator: { name: string, twitter: string } - attribution
-// - sourceUrl: (optional) link to original source if available
-
-export const showcaseComponents = [
-  // === INTERACTIVE COMPONENTS (with code) ===
-  
-  {
-    id: 'handlebars',
-    title: 'Handlebars Reveal',
-    description: 'Draggable handles that reveal hidden content with a smooth mask animation. Interactive GSAP-powered component.',
-    category: 'animations',
-    tags: ['gsap', 'draggable', 'mask', 'interactive', 'animation'],
-    media: null,
-    creator: {
-      name: 'Abdullah Mukadam',
-      twitter: '@abd_mukadam',
-    },
-    hasLivePreview: true,
-    sourceUrl: null,
-    dependencies: ['gsap', 'react'],
-    code: {
-      jsx: `import React, { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { Draggable } from "gsap/Draggable";
-
-gsap.registerPlugin(Draggable);
-
-const Handlebars = ({ children }) => {
-  const containerRef = useRef(null);
-  const leftHandleRef = useRef(null);
-  const rightHandleRef = useRef(null);
-  const contentRef = useRef(null);
-  const leftDraggableRef = useRef(null);
-  const rightDraggableRef = useRef(null);
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const observer = new ResizeObserver((entries) => {
-      if (entries[0]) setWidth(entries[0].contentRect.width);
-    });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!leftHandleRef.current || !rightHandleRef.current || !contentRef.current || width === 0) return;
-
-    if (leftDraggableRef.current) leftDraggableRef.current[0].kill();
-    if (rightDraggableRef.current) rightDraggableRef.current[0].kill();
-
-    gsap.set(leftHandleRef.current, { x: 0 });
-    gsap.set(rightHandleRef.current, { x: width - 28 });
-
-    const updateMask = () => {
-      const leftX = leftDraggableRef.current[0].x;
-      const rightX = rightDraggableRef.current[0].x + 28;
-      const leftPercent = Math.max(0, Math.min(100, (leftX / width) * 100));
-      const rightPercent = Math.max(0, Math.min(100, (rightX / width) * 100));
-      const maskValue = \`linear-gradient(90deg, transparent 0%, transparent \${leftPercent}%, black \${leftPercent}%, black \${rightPercent}%, transparent \${rightPercent}%, transparent 100%)\`;
-      gsap.set(contentRef.current, { mask: maskValue, webkitMask: maskValue });
-    };
-
-    leftDraggableRef.current = Draggable.create(leftHandleRef.current, {
-      type: "x",
-      bounds: { minX: 0, maxX: width - 28 },
-      onDrag: function () {
-        updateMask();
-        if (rightDraggableRef.current) {
-          rightDraggableRef.current[0].applyBounds({ minX: this.x + 28, maxX: width - 28 });
-        }
-      }
-    });
-
-    rightDraggableRef.current = Draggable.create(rightHandleRef.current, {
-      type: "x",
-      bounds: { minX: 28, maxX: width - 28 },
-      onDrag: function () {
-        updateMask();
-        if (leftDraggableRef.current) {
-          leftDraggableRef.current[0].applyBounds({ minX: 0, maxX: this.x - 28 });
-        }
-      }
-    });
-
-    updateMask();
-
-    return () => {
-      leftDraggableRef.current?.[0].kill();
-      rightDraggableRef.current?.[0].kill();
-    };
-  }, [width]);
-
-  return (
-    <div className="flex justify-center gap-4 py-10 w-full">
-      <div ref={containerRef} className="relative -rotate-[2.76deg] mt-0.5 w-64 md:w-80 h-16">
-        <div className="absolute inset-0 w-full h-full rounded-full border border-yellow-500/50 flex justify-between z-10 pointer-events-none">
-          <div ref={leftHandleRef} className="absolute z-20 h-full border border-yellow-500 w-7 rounded-full bg-[#1a1a1a] flex items-center justify-center cursor-grab active:cursor-grabbing pointer-events-auto">
-            <div className="w-1.5 h-6 rounded-full bg-yellow-500" />
-          </div>
-          <div ref={rightHandleRef} className="absolute z-20 h-full border border-yellow-500 w-7 rounded-full bg-[#1a1a1a] flex items-center justify-center cursor-grab active:cursor-grabbing pointer-events-auto">
-            <div className="w-1.5 h-6 rounded-full bg-yellow-500" />
-          </div>
-        </div>
-        <span ref={contentRef} className="absolute inset-0 flex items-center justify-center w-full h-full px-9 bg-[#1a1a1a] rounded-full border border-white/10 text-white font-bold text-lg whitespace-nowrap overflow-hidden">
-          {children}
-        </span>
-      </div>
-    </div>
-  );
-};
-
-export default Handlebars;`,
-    }
-  },
-  {
-    id: 'neumorphic-music-ui',
-    title: 'Neumorphic Music UI',
-    description: 'A soft UI music player concept with 3D buttons and smooth GSAP animations.',
-    category: 'cards',
-    tags: ['react', 'tailwind', 'gsap', 'neumorphism', 'ui'],
-    media: null,
-    creator: {
-      name: 'Abdullah Mukadam',
-      twitter: '@abd_mukadam',
-    },
-    hasLivePreview: true,
-    sourceUrl: null,
-    dependencies: ['gsap', 'react'],
-    code: {
-      'NeumorphicMusicCard.jsx': `import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 const allData = [
@@ -228,7 +93,7 @@ const NeumorphicMusicCard = () => {
         {/* Card Container */}
         <div ref={containerRef} className="flex-1 pb-32 space-y-6 px-4 pt-2 overflow-y-auto no-scrollbar scrollbar-hide">
           {currentData.map((item, index) => (
-            <article key={\`\${currentPage}-\${index}\`} className="neu-card -mx-2 bg-neu-base rounded-[24px] shadow-[3px_3px_8px_rgba(163,145,145,0.2),-3px_-3px_8px_rgba(255,255,255,0.8)] p-4 flex items-center gap-4 relative group cursor-pointer border border-white/20">
+            <article key={`${currentPage}-${index}`} className="neu-card -mx-2 bg-neu-base rounded-[24px] shadow-[3px_3px_8px_rgba(163,145,145,0.2),-3px_-3px_8px_rgba(255,255,255,0.8)] p-4 flex items-center gap-4 relative group cursor-pointer border border-white/20">
                 <div className="w-[72px] h-[72px] rounded-2xl overflow-hidden shadow-neu-in-sm shrink-0 relative">
                     <img src={item.img} alt="Album" className="w-full h-full object-cover opacity-90" />
                 </div>
@@ -270,11 +135,11 @@ const NeumorphicMusicCard = () => {
                     <button 
                       key={pageNum}
                       onClick={() => changePage(pageNum)}
-                      className={\`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all \${
+                      className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
                         currentPage === pageNum 
                           ? 'bg-neu-black text-white shadow-neu-dark active:scale-95' 
                           : 'shadow-neu-out text-gray-500 hover:text-gray-800 active:shadow-neu-in bg-[#EFEEEE]'
-                      }\`}
+                      }`}
                     >
                       {pageNum}
                     </button>
@@ -295,7 +160,7 @@ const NeumorphicMusicCard = () => {
 
       </main>
       
-      <style>{\`
+      <style>{`
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
@@ -303,39 +168,9 @@ const NeumorphicMusicCard = () => {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-      \`}</style>
+      `}</style>
     </div>
   );
 };
 
-export default NeumorphicMusicCard;`,
-      'tailwind.config.js': `// Add these extensions to your tailwind.config.js theme.extend
-colors: {
-  neu: {
-    base: '#EFEEEE', 
-    text: '#4A5568',
-    accent: '#FF7F50',
-    black: '#2D3748'
-  }
-},
-boxShadow: {
-  'neu-out': '6px 6px 12px rgba(163, 145, 145, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.9)',
-  'neu-card': '6px 6px 12px rgba(163, 145, 145, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.8)',
-  'neu-in': 'inset 5px 5px 10px rgba(163, 145, 145, 0.3), inset -5px -5px 10px rgba(255, 255, 255, 0.9)',
-  'neu-in-sm': 'inset 3px 3px 6px rgba(163, 145, 145, 0.4), inset -3px -3px 6px rgba(255, 255, 255, 0.9)',
-  'neu-dark': '6px 6px 12px rgba(45, 55, 72, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.1)',
-}`
-    }
-  },
-];
-
-// Categories for filtering
-export const categories = [
-  { id: 'all', label: 'All', count: showcaseComponents.length },
-  { id: 'dashboards', label: 'Dashboards', count: showcaseComponents.filter(c => c.category === 'dashboards').length },
-  { id: 'hero-sections', label: 'Hero Sections', count: showcaseComponents.filter(c => c.category === 'hero-sections').length },
-  { id: 'landing-pages', label: 'Landing Pages', count: showcaseComponents.filter(c => c.category === 'landing-pages').length },
-  { id: 'cards', label: 'Cards', count: showcaseComponents.filter(c => c.category === 'cards').length },
-  { id: 'mobile-ui', label: 'Mobile UI', count: showcaseComponents.filter(c => c.category === 'mobile-ui').length },
-  { id: 'animations', label: 'Animations', count: showcaseComponents.filter(c => c.category === 'animations').length },
-];
+export default NeumorphicMusicCard;
