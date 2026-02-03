@@ -4,6 +4,7 @@ import MagneticButton from './MagneticButton.jsx';
 import GradientBorderButton from './GradientBorderButton.jsx';
 import { HandlebarsPreview } from './Handlebars.jsx';
 import NeumorphicMusicCard from './NeumorphicMusicCard.jsx';
+import WoodToggle from './WoodToggle.jsx';
 
 
 // Map IDs from components.js to the actual component
@@ -13,6 +14,7 @@ const previewRegistry = {
   'gradient-border-button': GradientBorderButton,
   'handlebars': HandlebarsPreview,
   'neumorphic-music-ui': NeumorphicMusicCard,
+  "wood-toggle" : WoodToggle,
   
   // You can map other components here as you build them
   // For now, if a component doesn't have a preview, it will fallback to the default text
